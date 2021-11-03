@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block content1 %}
+<div class="container">
+<h1>Login</h1>
+
+    {% include "bsform.html" %}
+     <a href="{% url 'reset_password' %}" class="mx-5"> Forget Password</a>
+
+</div>
+{% endblock content1 %}

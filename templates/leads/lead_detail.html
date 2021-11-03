@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% block content1 %}
+<div class="container">
+        <a href="{% url 'lead-list' %}" class="ml-5 px-1 btn-secondary rounded-sm rounded-pill ">Back To Leads</a>
+        <table class="center">
+        <h2 class="text-center rounded-pill">Lead Detail </h2>
+                <tr>
+                        <td>Name</td>
+                        <td>{{lead.first_name}} {{lead.last_name}}</td>
+                </tr>
+                <tr>
+                        <td>Email</td>
+                        <td>{{lead.agent.user.email}}</td>
+                </tr>
+                <tr>
+                        <td>DOB</td>
+                        <td>{{lead.date_of_birth}}</td>
+                </tr>
+                <tr>
+                        <td>Agent</td>
+                        <td>{{lead.agent.user.first_name}}</td>
+                </tr>
+                <tr>
+                        <td>Discription</td>
+                        <td>{{lead.discription}}</td>
+                </tr>
+                <tr>
+                        <td>Category</td>
+                        {% if lead.category.name == "Contacted" %}
+                        <td class="btn btn-primary rounded-pill">{{ lead.category }}</td>
+                        {% elif lead.category.name == "Converted" %}
+                        <td class="btn btn-success rounded-pill">{{ lead.category }}</td>
+                        {% elif lead.category.name == "Unconverted" %}
+                        <td class="btn btn-warning rounded-pill">{{ lead.category }}</td>
+                        {% endif %}
+                </tr>
+
+                <tr>
+                        <td><a href="{% url 'lead-update' lead.pk %}" class="card-link btn btn-outline-primary">Update</a></td>
+                        <td><a href="{% url 'lead-delete' lead.pk %}" class="card-link btn btn-outline-danger">Delete</a></td>
+                </tr>
+                        
+                
+        </table>
+</div>
+
+
+{% endblock content1 %}

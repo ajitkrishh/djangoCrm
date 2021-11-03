@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% block content1 %}
+<div class="container1">
+      <h1 class="rounded-pill">Leads</h1>
+      
+      <div class="card-columns mt-4">
+
+            {% for lead in object_list %}
+            <div class="card border border-dark">
+                  <div class="card-body" style="background-color:#cf65f8;">
+                        <h4> Name: {{lead.first_name}} {{lead.last_name}} </h4>
+                        <h6 class="card-subtitle mb-2 text-light mt-2">Discription: {{lead.discription}}</h6>
+                        
+                        <a href="{% url 'lead-detail' lead.pk %}" class="card-link btn btn-outline-primary text-dark">More...</a>
+                        
+                  </div >
+            </div>
+            {% endfor %}          
+      </div>
+
+</div>
+
+{% endblock content1 %}
+
+
+{% block content2 %}
+      
+      {% if unassigned_leads %}
+<div class="container1">
+      <h2 class="rounded-pill">Unassigned Lead list</h2>
+      <div class="card-columns mt-4">
+
+            {% for lead in unassigned_leads %}
+            <div class="card">
+                  <div class="card-body" style="background-color: #ffeb3b;">
+                        <h4>Name: {{lead.first_name}} {{lead.last_name}}</h4>
+                        <h6 class="card-subtitle mb-2 text-muted mt-2">Discription: {{lead.discription}}</h6>
+                       
+                        <a href="{% url 'lead-detail' lead.pk %}" class="card-link btn btn-outline-primary">More...</a>
+                        </div>
+            </div>
+            {% endfor %}          
+      </div>
+</div>
+      {% endif %}
+{% endblock content2 %}

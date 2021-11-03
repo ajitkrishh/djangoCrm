@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block content1 %}
+    <div class="container1">
+        <h1 class="rounded-pill">catagory {{Category.name}}</h1>
+        
+        <div class="card-columns mt-4">
+  
+              {% for lead in req_leads %}
+              <div class="card border border-dark">
+                    <div class="card-body" style="background-color:#ffeb3b;">
+                          <h4> Name: {{lead.first_name}} {{lead.last_name}} </h4>
+                          <h6 class="card-subtitle mb-2 text-muted mt-2">Email: {{lead.agent.user.email}}</h6>
+                          
+                          <a href="{% url 'lead-detail' lead.pk %}" class="card-link btn btn-outline-primary">More...</a>
+                          
+                    </div >
+              </div>
+              {% endfor %}          
+        </div>
+  
+  </div>
+      
+
+
+{% endblock content1 %}

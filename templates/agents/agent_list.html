@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block content1 %}
+<div class="container">
+
+        <h1>Agent list</h1>
+        <table class="text-center" style="min-width: 100%;">
+                <thead>
+                        <tr>
+                                <th>No.</th>
+                                <th>Agent Id</th>
+                                <th>Name</th>
+                                <th>...</th>
+                        </tr>
+
+                </thead>
+                <tbody>
+                        {% for agent in object_list %}
+                        <tr>
+                                <td>{{forloop.counter}}</td>
+                                <td>{{agent.user.username}}</td>
+                                <td>{{agent.user.first_name}} {{agent.user.last_name}}</td>
+                                <td><a href="{% url 'agent-detail' agent.pk %}" class="btn btn-info ">More </a></td>
+                        </tr>
+                        {% endfor %}
+                </tbody>
+        </table>
+       
+
+</div>
+
+
+{% endblock content1 %}

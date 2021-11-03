@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% load static %}
+{% block styleblock %}
+    body{
+        background-image:url("{% static 'media/crm.jpg' %}") ;
+        background-size : 100%;
+    }
+    h1{
+        background-color:transparent;
+        color : brown;
+    
+        }
+    .transparent{
+        margin-top: 10%;
+        margin-left: 8%;
+        max-width:30%;
+        padding:1%;
+        background:rgb(255, 180, 116,0.6);
+    }
+{% endblock styleblock %}
+{% block content1 %}
+<div class="transparent">
+    <H1>Hello Friends</H1>
+    <div class="clearr">
+         Check this website (made in Django) for customer relationship Management(CRM). <br>
+     It is loaded with functionalities of login,logout,forgot password, password reset ,sending email whwnever required and 
+     other similar tasks.
+     <hr>
+      It is able to perform Basic CRUD operation for Leads and Agents. <br>
+     It also manages Agent Organisation.
+    </div>
+     
+</div>
+{% endblock content1 %}
+        
+        
